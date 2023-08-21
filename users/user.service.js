@@ -40,6 +40,26 @@ class UserService {
         }
 
     }
+
+    async jwtValidateRefreshToken(refresh, res) {
+        try {
+    
+            const token = refresh;
+    
+            return jwt.verify(token, process.env.AUTH_REFRESH_TOKEN_SECRET, (err, decoded) => {
+                if (err) {
+                    throw new Error(error);
+                }
+                return this.genJwt({
+                    username:decoded.username,
+                    id:decoded.id
+                })
+            })
+    
+        } catch (error) {
+            return res.sendStatus(403)
+        }
+    }
 }
 
 module.exports = UserService;
