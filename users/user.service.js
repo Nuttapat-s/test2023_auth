@@ -19,13 +19,13 @@ class UserService {
     async genJwt(user) {
         try {
             let accessToken = await jwt.sign(
-                { name: user.name, id: user.id },
+                { username: user.username, id: user.id },
                 process.env.AUTH_ACCESS_TOKEN_SECRET,
                 { expiresIn: "30m", algorithm: "HS256" }
             )
 
             let refreshToken = await jwt.sign(
-                { name: user.name, id: user.id },
+                { username: user.username, id: user.id },
                 process.env.AUTH_REFRESH_TOKEN_SECRET,
                 { expiresIn: "1d", algorithm: "HS256" }
             )
