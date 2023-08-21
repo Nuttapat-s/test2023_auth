@@ -20,6 +20,13 @@ class UserRepo {
         })
     }
 
+    async create(username,password,email){
+        await User.insertMany([{username,password,email}])
+        return {
+            message: 'success'
+        }
+    }
+
 }
 
 module.exports = UserRepo;

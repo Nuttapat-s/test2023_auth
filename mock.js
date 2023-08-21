@@ -12,15 +12,18 @@ class Mock{
             User.insertMany([
                 {
                     'username': 'test1',
-                    'password': '1234'
+                    'password': '1234',
+                    'email':'test1@g.com'
                 },
                 {
                     'username': 'test2',
-                    'password': '1234'
+                    'password': '1234',
+                    'email':'test2@g.com'
                 },
                 {
                     'username': 'test3',
-                    'password': '1234'
+                    'password': '1234',
+                    'email':'test3@g.com'
                 }
     
             ]).catch((err) => {

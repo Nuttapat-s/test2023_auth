@@ -18,10 +18,21 @@ router.post('/login', async (req, res) => {
 
 router.post('/refresh',async (req,res) =>{
     try {
-        return await userService.jwtValidateRefreshToken(req.body.refreshToken,res)
+        let data =await userService.jwtValidateRefreshToken(req.body.refreshToken,res)
+        res.send(data)
     } catch (error) {
         res.sendStatus(500);
     }
 })
+
+router.post('/create',async (req,res) =>{
+    try {
+        let data = await userService.create(req.body.username,req.body.password,req.body.email)
+        res.send(data)
+    } catch (error) {
+        res.send(error.message)
+    }
+})
+
 
 module.exports = router;
