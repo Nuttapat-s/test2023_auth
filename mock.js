@@ -1,4 +1,4 @@
-const User = require('./users/models/user.models')
+const User = require('./src/users/models/user.models')
 const mongoose = require('mongoose')
 
 class Mock{

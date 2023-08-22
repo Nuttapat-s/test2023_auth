@@ -1,5 +1,5 @@
 const express = require('express');
-const userRouter = require('./users/user.controller')
+const userRouter = require('./src/users/user.controller')
 const dotenv = require('dotenv');
 const mongoose = require('mongoose')
 const Mock = require('./mock')
@@ -9,6 +9,7 @@ dotenv.config();
 let mock = new Mock();
 
 mongoose.Promise = global.Promise;
+console.log(process.env.DB_URL)
 mongoose.connect(process.env.DB_URL)
     .then(() => {
         console.log('db connect success')
